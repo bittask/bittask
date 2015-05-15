@@ -11,9 +11,9 @@
         <p>Send <strong><%= number_with_delimiter(bits * i) %></strong> bits or <strong><%= number_with_delimiter((bits * i).to_f / 1_000_000) %> BTC</strong> to have <strong><%= number_with_delimiter i %></strong> people complete it</p>
       <% end %>
     <% elsif @task.active %>
-      <h2>Task is running. <%= @answers.count %> answers so far.</h2>
+      <h2>Task is running. <%= @num %> answers so far.</h2>
     <% else %>
-      <h2>Task completed. <%= @answers.count %> answers received.</h2>
+      <h2>Task completed. <%= @num %> answers received.</h2>
     <% end %>
 
     <p>Bitcoin address <%= link_to @task.address, url, target: "_blank" %></p>
