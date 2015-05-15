@@ -23,7 +23,10 @@ class TasksController < ApplicationController
   # get a task to show users
   def show
     @task = Task.find(params[:id])
+    @answers = @task.answers
   rescue
     redirect_to '/', error: "Task not found"
   end
+
+
 end
