@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150515002251) do
   add_index "answers", ["task_id"], name: "index_answers_on_task_id", using: :btree
   add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "tasks", id: :uuid, default: "gen_random_uuid()", force: :cascade do |t|
     t.string   "title"
     t.integer  "type"
     t.text     "choices",                 array: true
