@@ -1,9 +1,15 @@
 class Task < ActiveRecord::Base
+  TYPE_MULTIPLE_CHOICE = 1
+  TYPE_FREE_FORM = 2
+
   belongs_to :user
   has_many :answers
 
-  TYPE_MULTIPLE_CHOICE = 1
-  TYPE_FREE_FORM = 2
+  validates_presence_of :user, :title, :task_type, :cost, :address, :balance
+
+  def add_balance balance
+    increment :balance, balance
+  end
 
   def to_s
     txt = []
@@ -30,7 +36,9 @@ class Task < ActiveRecord::Base
       id: id,
       title: title,
       choices: choices,
-      cost: cost
+      cost: cost,
+      address: address,
+      balance: balance
     }
   end
 

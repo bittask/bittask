@@ -1,11 +1,15 @@
 class Api::V1::TasksController < ApplicationController
-  respond_to :json
 
+  # get a task to show users
   def show
-    respond_with Task.find(params[:id])
+    render json: Task.find(params[:id])
   end
 
   def index
-    respond_with Task.all
+    render json: Task.all
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    render json: { success: false, error: e.message }, status: 400
   end
 end

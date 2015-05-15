@@ -30,24 +30,28 @@ ActiveRecord::Schema.define(version: 20150515002251) do
   add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "tasks", id: :uuid, default: "gen_random_uuid()", force: :cascade do |t|
+    t.uuid     "user_id"
     t.string   "title"
-    t.integer  "task_type"
-    t.text     "choices",                 array: true
+    t.integer  "task_type",  default: 0
+    t.text     "choices",                                 array: true
     t.integer  "cost"
     t.string   "address"
-    t.integer  "balance"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.uuid     "user_id"
+    t.integer  "balance",    default: 0
+    t.boolean  "active",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
+  add_index "tasks", ["address"], name: "index_tasks_on_address", using: :btree
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", id: :uuid, default: "gen_random_uuid()", force: :cascade do |t|
     t.string   "address"
-    t.integer  "balance"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "balance",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
+
+  add_index "users", ["address"], name: "index_users_on_address", using: :btree
 
 end
