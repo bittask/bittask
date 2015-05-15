@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2" style="text-align: center;">
     <h2>Send Payment To Start Your Task</h2>
 
-    <% amt = (@task.cost * 100).to_f / 1_000_000 %>
+    <% amt = (@task.cost.to_f / 100_000_000).to_f %>
     <% url = bitcoin_url(@task.address, amt, "Payment to BitTask.io") %>
     <% bits = (@task.cost.to_f / 100).round %>
 
@@ -16,7 +16,7 @@
 
 
     <br><br><br>
-    <p>This how your task will look:</p>
+    <p>This is how your task will look:</p>
   </div>
 </div>
 <br><br>
