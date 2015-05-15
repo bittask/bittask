@@ -2,7 +2,7 @@ var MenuCreate = React.createClass({
 
   render: function() {
     return (
-      <div>Create a task!</div>
+    	<li><button type="button" className="btn button-nav">CREATE<br />YOUR TASK</button></li>
     );
   }
 });

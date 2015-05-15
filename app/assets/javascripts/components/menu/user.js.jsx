@@ -31,11 +31,9 @@ var MenuUser = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <div>ID: {this.state.id}</div>
-        <div>Address: {this.state.address}</div>
-        <div>Balance: {this.state.balance}</div>
-      </div>
+      <li>
+        <button id="popover" type="button" className="btn button-nav" data-container="body" data-toggle="popover" data-placement="bottom"> <span className="green"><strong>{this.state.balance} BITS</strong></span><br /> CASH OUT </button>
+      </li>
     );
   }
 });

@@ -26,7 +26,7 @@ var Answer = React.createClass({
 
   render: function() {
     return (
-      <button onClick={this.handleClick}>{this.props.choice}</button>
+      <button className="btn btn-lg btn-default" onClick={this.handleClick}>{this.props.choice}</button>
     );
   }
 });
