@@ -6,7 +6,7 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def index
-    respond_with Task.all
+    render json: Task.all
   end
 
   rescue_from ActiveRecord::RecordNotFound do |e|

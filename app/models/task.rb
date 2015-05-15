@@ -36,7 +36,9 @@ class Task < ActiveRecord::Base
       id: id,
       title: title,
       choices: choices,
-      cost: cost
+      cost: cost,
+      address: address,
+      balance: balance
     }
   end
 
