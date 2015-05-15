@@ -5,9 +5,15 @@ class Task < ActiveRecord::Base
   belongs_to :user
   has_many :answers
 
+  before_validation :reset_balance
+
   validates_presence_of :user, :title, :task_type, :cost, :balance
 
   after_save :get_address
+
+  def reset_balance
+    self.balance = 0
+  end
 
   def get_address
     return if address
@@ -16,11 +22,20 @@ class Task < ActiveRecord::Base
 
   def increase_balance bal
     increment!(:balance, bal)
+    update_active
   end
 
   def answered
     increment!(:balance, -cost)
-    update_column(:active, false) if balance < cost
+    update_active
+  end
+
+  def update_active
+    if active
+      update_column(:active, false) if balance < cost
+    else
+      update_column(:active, true) if balance >= cost
+    end
   end
 
   def to_s
