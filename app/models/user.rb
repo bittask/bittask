@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_many :answers
 
-  before_validation :reset_balance
+  before_create :reset_balance
 
   validates_presence_of :balance
 
@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
     return unless address
 
     COINBASE.send_money(address, balance.to_f/100_000_000, "Thanks for using BitTask!")
+    reset_balance
+    save!
   end
 
   def answered(task)
