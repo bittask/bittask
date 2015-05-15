@@ -4,8 +4,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :tasks
       resources :answers
+      resources :users
     end
   end
+
+  root 'static#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

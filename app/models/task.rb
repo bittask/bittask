@@ -25,4 +25,13 @@ class Task < ActiveRecord::Base
     txt.join("\n")
   end
 
+  def serializable_hash(options)
+    {
+      id: id,
+      title: title,
+      choices: choices,
+      cost: cost
+    }
+  end
+
 end

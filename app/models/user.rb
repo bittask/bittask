@@ -5,4 +5,12 @@ class User < ActiveRecord::Base
   def to_s
     "#{id}"
   end
+
+  def serializable_hash(options)
+    {
+      id: id,
+      address: address,
+      balance: balance
+    }
+  end
 end
