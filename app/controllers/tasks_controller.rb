@@ -7,6 +7,7 @@ class TasksController < ApplicationController
     @task.task_type = Task::TYPE_MULTIPLE_CHOICE # only one supported right now
     @task.choices = params[:task][:choices].split("\n")
     @task.cost = params[:task][:cost]
+    @task.image = Cloudinary::Uploader.upload(params[:task][:image])['url'] rescue nil
 
     if @task.save
       redirect_to task_path(@task)

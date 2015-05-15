@@ -30,6 +30,8 @@ gem "twitter-bootstrap-rails"
 gem 'coinbase', '~> 2.2.1'
 gem 'bitcoin-ruby',                  git: 'https://github.com/lian/bitcoin-ruby.git', ref: 'a62a6c6d188210121074b7198d4bbbf066dd23ae', require: 'bitcoin'
 
+gem 'cloudinary'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
