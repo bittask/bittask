@@ -14,6 +14,10 @@ t1 = Task.create(title: "Dog or Cat", task_type: Task::TYPE_MULTIPLE_CHOICE, cho
 t2 = Task.create(title: "Hot or Not", task_type: Task::TYPE_MULTIPLE_CHOICE, choices: ['Hot', 'Not'], cost: 200, address: "mmcbU36FhNw8EbyqgzgSDqFhhGqdygPiKk", active: true, balance: 10000, user: u1)
 t3 = Task.create(title: "What is your name?", task_type: Task::TYPE_FREE_FORM, cost: 200, address: "n4auv2LcAtMxWa7KBe5VKXnn5CrjHmJhwU", balance: 0, user: u1)
 
+100.times do |count|
+  Task.create(title: "Question#{count}", task_type: Task::TYPE_MULTIPLE_CHOICE, choices: ['Yes', 'No'], cost: 100, address: "moAxDkv96UfjsuqYGs5SETtSCrUR1uAGVu", active: true, balance: 100, user: u1)
+end
+
 a1 = Answer.create(task: t1, user: u2, choice: 0)
 a2 = Answer.create(task: t1, user: u3, choice: 1)
 a3 = Answer.create(task: t2, user: u2, choice: 0)

@@ -6,7 +6,11 @@ class Api::V1::AnswersController < ApplicationController
     puts params[:task_id]
     puts current_user.id
     task = Task.find(params[:task_id])
-    choice = task.choices.index(params[:choice])
+    if task.task_type == Task::TYPE_MULTIPLE_CHOICE
+      choice = task.choices.index(params[:choice])
+    else
+      text = params[:text]
+    end
     answer = Answer.create!(user: current_user, task: task, choice: choice) rescue nil
 
     if answer

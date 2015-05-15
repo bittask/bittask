@@ -10,8 +10,12 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def latest
-    # Need to filter out tasks user has already seen
-    render json: Task.where(active: true).order(cost: :desc).first
+    # Tasks that user has answered
+    tasks = Answer.select("task_id").user(current_user.id)
+    # Tasks that user has not answered ordered by descending cost
+    task = Task.where.not(id: tasks).order(cost: :desc).first
+
+    render json: task
   end
 
   rescue_from ActiveRecord::RecordNotFound do |e|

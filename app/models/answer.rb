@@ -4,6 +4,14 @@ class Answer < ActiveRecord::Base
 
   validates_presence_of :task, :user
 
+  def self.user(user_id)
+    where("answers.user_id = ?", user_id)
+  end
+
+  def self.not_user(user_id)
+    where("answers.user_id <> ?", user_id)
+  end
+
   def to_s
     a = choice.present? ? "#{choice}" : text
     "#{user}: #{a}"
