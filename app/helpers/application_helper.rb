@@ -9,4 +9,12 @@ module ApplicationHelper
     url += "&message=#{URI.encode msg}" if msg #assume you also added a amount for now
     url
   end
+
+  def flash_type_to_css_class(type)
+    case type.to_sym
+    when :notice then 'alert-success'
+    when :alert then 'alert-error alert-danger'
+    end
+  end
+
 end

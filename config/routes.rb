@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :answers
   resources :users
   resources :callbacks
+  resources :transactions
 
   root 'static#index'
 

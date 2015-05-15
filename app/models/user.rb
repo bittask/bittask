@@ -18,12 +18,7 @@ class User < ActiveRecord::Base
     # Send balance to bitcoin address
     return unless address
 
-    begin
-      COINBASE.send_money(address, balance.to_f/100_000_000, "Thanks for using BitTask!")
-    rescue Coinbase::Client::Error => e
-      # Not enough coins. Need fees to withdraw.
-      throw e
-    end
+    COINBASE.send_money(address, balance.to_f/100_000_000, "Thanks for using BitTask!")
   end
 
   def answered(task)
