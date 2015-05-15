@@ -50,7 +50,7 @@ var Task = React.createClass({
     return (
       <div className="card card-task">
         <div id='task-image'><span className="placeholder"></span></div>
-        <div className="lead">{this.state.title}</div>
+        <p className="lead">{this.state.title}</p>
         {choices}
         <p className="text-muted fine-print">This task will pay {this.state.cost} bits and there are {this.state.balance} bits remaining.</p>
       </div>
