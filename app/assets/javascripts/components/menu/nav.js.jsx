@@ -5,7 +5,7 @@ var MenuNav = React.createClass({
       <nav className="navbar navbar-inverse navbar-fixed-top">
       	<div className="container">
       	      <div className="navbar-header">
-		        <a className="navbar-brand" href="/"><span className="logo"></span></a>
+		        <a className="navbar-brand" href="/">BitTask</a>
 		      </div>
 	      <div id="navbar" className="navbar-collapse collapse">
 	        <ul className="nav navbar-nav">
