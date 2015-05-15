@@ -1,6 +1,6 @@
 class Api::V1::CallbacksController < ApplicationController
 
-  def index
+  def create
     address = params[:address]
     amount = params[:amount]
     transaction = params[:transaction]
