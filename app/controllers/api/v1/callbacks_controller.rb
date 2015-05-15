@@ -1,4 +1,5 @@
-class Api::V1::CallbacksController < ApplicationController
+class Api::V1::CallbacksController < ActionController::Base
+  protect_from_forgery with: :null_session
 
   def create
     address = params[:address]
