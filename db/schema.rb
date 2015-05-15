@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150515002251) do
 
   create_table "tasks", id: :uuid, default: "gen_random_uuid()", force: :cascade do |t|
     t.string   "title"
-    t.integer  "type"
+    t.integer  "task_type"
     t.text     "choices",                 array: true
     t.integer  "cost"
     t.string   "address"
