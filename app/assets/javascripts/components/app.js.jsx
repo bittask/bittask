@@ -5,9 +5,15 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <MenuUser /><MenuCreate />
-        <p/>
-        <Task updateTask={this.handleTaskUpdate} />
+        <MenuNav />
+        
+        <div className="container" role="main">
+          <div className="card">
+            <h2>Earn bitcoin by completing tasks</h2>
+          </div>
+          <Task updateTask={this.handleTaskUpdate} />
+        </div>
+
       </div>
     );
   }

@@ -55,7 +55,7 @@
     border-radius: 6px;
   }
 
-  .card-contrast {
+  .card-task {
     background-color: #fff;
     width: 50%;
     margin-left: auto;
@@ -67,10 +67,35 @@
   .card .btn {
     padding: 14px 24px;
     font-size: 21px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .popover {
     width: 350px !important;
     max-width: 350px !important;
   }
-}
+
+  .placeholder {
+    height: 331px;
+    width: 500px;
+    background: #ccc;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo {
+    height: 50px;
+    width: 198px;
+    display: block;
+    background: #ccc;
+  }
+
+  .green {
+    color: #5CB85C;
+  }
+
+  .fine-print {
+    padding-top: 30px;
+  }

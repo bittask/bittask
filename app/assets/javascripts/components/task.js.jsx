@@ -48,12 +48,11 @@ var Task = React.createClass({
       choices.push(<Answer key="0" choice="Free form" task_id={task_id} on_click={boundClick} />);
     }
     return (
-      <div>
-        <div>{this.state.title}</div>
+      <div className="card card-task">
+        <div id='task-image'><span className="placeholder"></span></div>
+        <div className="lead">{this.state.title}</div>
         {choices}
-        <div>Cost: {this.state.cost}</div>
-        <div>Address: {this.state.address}</div>
-        <div>Balance: {this.state.balance}</div>
+        <p className="text-muted fine-print">This task will pay {this.state.cost} bits and there are {this.state.balance} bits remaining.</p>
       </div>
     );
   }
