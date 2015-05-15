@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   after_filter :cors_set_access_control_headers
 
   def set_cookie
-    if cookies[:user_id].blank?
+    if current_user.nil?
       u = User.create
       cookies[:user_id] = { value: u.id, expires: 99.years.from_now }
     end
@@ -17,5 +17,9 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
     headers['Access-Control-Allow-Headers'] = '*'
+  end
+
+  def current_user
+    @current_user ||= User.find(cookies[:user_id]) rescue nil
   end
 end

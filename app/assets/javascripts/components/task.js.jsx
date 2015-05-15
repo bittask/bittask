@@ -8,12 +8,17 @@ var Task = React.createClass({
   },
 
   componentDidMount: function() {
+    var url = "/api/v1/tasks/latest";
+    if (this.props.url) {
+      url = this.props.url
+    }
     $.ajax({
-      url: this.props.url,
+      url: url,
       dataType: 'json',
       cache: false,
       success: function(data) {
         this.setState({
+          id: data.id,
           title: data.title,
           choices: data.choices,
           cost: data.cost,
@@ -30,6 +35,11 @@ var Task = React.createClass({
     if (!this.state.choices) {
       return (<div>loading...</div>)
     }
+    var rows = [];
+    var task_id = this.state.id
+    this.state.choices.forEach(function(choice) {
+      rows.push(<Answer choice={choice} task_id={task_id} />);
+    });
     return (
       <div>
         <div>Title: {this.state.title}</div>
@@ -37,22 +47,8 @@ var Task = React.createClass({
         <div>Cost: {this.state.cost}</div>
         <div>Address: {this.state.address}</div>
         <div>Balance: {this.state.balance}</div>
+        {rows}
       </div>
     );
   }
 });
-
-
-// var CommentBox = React.createClass({
-//   render: function() {
-//     return (
-//       <div className="commentBox">
-//         Hello, world! I am a CommentBox.
-//       </div>
-//     );
-//   }
-// });
-// React.render(
-//   <CommentBox />,
-//   document.getElementById('content')
-// );
