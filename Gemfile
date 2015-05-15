@@ -48,3 +48,4 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'coinbase', '~> 2.2.1'
