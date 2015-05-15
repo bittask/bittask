@@ -1,2 +1,274 @@
-<p>Coming soon!</p>
-<p>Your user id is <%= current_user.id %></p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>BitTask</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+
+
+/* Space out content a bit */
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  margin-bottom: 60px;
+
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.navbar-nav {
+  float: right !important;
+}
+
+.button-nav {
+  margin: 8px 0px 8px 10px !important;
+}
+
+.navbar {
+  min-height: 75px;
+}
+
+.navbar .btn {
+  min-height: 54px;
+}
+
+.btn-lime {
+  background-color: #C4F849;
+  font-weight: bold;
+}
+
+.navbar-inverse {
+  background-color: #00D4C9;
+  border-color: #00D4C9;
+  color: #fff;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #fff;
+  font-size: 42px;
+  margin-top: 8px;
+}
+
+.jumbotron {
+  background: #fff;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.jumbo-space {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  border-bottom: 2px solid #C4F849 !important;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #C4F849;
+}
+
+.popover {
+    width: 350px !important;
+    max-width: 350px !important;
+  }
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing .{
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #fff;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+</style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body role="document">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><strong>BitTask<strong></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <button id="popover" type="button" class="btn btn-lime button-nav" data-container="body" data-toggle="popover" data-placement="bottom">
+                1,000 BITS <br /> CASH OUT
+              </button>
+              <div id="popover-head" class="hide"></div>
+              <div id="popover-content" class="hide">
+              <form class="form-inline">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="Bitcoin address">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-success">Send bitcoin</button>
+              </form>
+              </div>
+            </li>
+            <li><button type="button" class="btn btn-lime button-nav">CREATE <br />YOUR TASK</button></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+
+
+
+
+
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron jumbo-space">
+        <h2>Earn bitcoin by completing tasks</h2>
+        <p>Solve easy tasks for bitcoin or get others to solve your tasks!</p>
+      </div>
+
+      <div class="jumbotron jumbo-space">
+        <p><img src="exchange.jpg" /></p>
+        <p class="lead">Do you trade on Coinbase Exchange?</p>
+        <p> <a class="btn btn-lg btn-success" href="#" role="button">Yes</a>
+            <a class="btn btn-lg btn-danger" href="#" role="button">No</a></p>
+      </div>
+
+
+
+    </div> <!-- /container -->
+
+    <footer class="footer">
+      <div class="container">
+        <p>TO THE MOON! ┗(°0°)┛ - Your user id is <%= current_user.id %></p>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+      $('#popover').popover({
+          html : true,
+          title: function() {
+            return $("#popover-head").html();
+          },
+          content: function() {
+            return $("#popover-content").html();
+          }
+      });
+    </script>
+
+
+  </body>
+</html>
