@@ -2,10 +2,16 @@
   <div class="col-md-8 col-md-offset-2" style="text-align: center;">
     <h2>Send Payment To Start Your Task</h2>
 
-    Bitcoin address <%= @task.address %>
     <% amt = (@task.cost * 100).to_f / 1_000_000 %>
     <% url = bitcoin_url(@task.address, amt, "Payment to BitTask.io") %>
-    <%= link_to image_tag("https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=#{URI.encode url}"), url %>
+
+    <p>Bitcoin address <%= link_to @task.address, url, target: "_blank" %></p>
+    <p>You've chosen to pay <strong><%= @task.cost %> bits</strong> per task so...</p>
+    <% [10,100,1000].each do |i| %>
+      <p>Send <strong><%= number_with_delimiter(@task.cost * i) %></strong> bits or <strong><%= number_with_delimiter((@task.cost * i).to_f / 1_000_000) %> BTC</strong> to have <strong><%= number_with_delimiter i %></strong> people complete it</p>
+    <% end %>
+
+    <%= link_to image_tag("https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=#{URI.encode url}"), url, target: "_blank" %>
   </div>
 </div>
 <br><br>
