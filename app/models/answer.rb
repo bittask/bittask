@@ -13,8 +13,10 @@ class Answer < ActiveRecord::Base
   end
 
   def update_balances
-    task.answered()
-    user.answered(task)
+    if task.active
+      task.answered()
+      user.answered(task)
+    end
   end
 
   def self.user(user_id)
