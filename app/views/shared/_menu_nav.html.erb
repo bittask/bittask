@@ -6,7 +6,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><%= link_to "My Tasks".html_safe, users_path, class: 'btn button-nav' %></li>
-        <li><%= link_to "Cash Out<br><span class='green'><strong>#{current_user.balance} BITS</strong></span>".html_safe, new_task_path, class: 'btn button-nav' %></li>
+        <li><%= link_to "Cash Out<br><span class='green'><strong>#{(current_user.balance.to_f / 100).round} BITS</strong></span>".html_safe, new_task_path, class: 'btn button-nav' %></li>
         <li><%= link_to "Post A<br>Task".html_safe, new_task_path, class: 'btn button-nav' %></li>
       </ul>
     </div>

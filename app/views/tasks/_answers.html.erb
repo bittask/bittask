@@ -1,0 +1,10 @@
+<% if @num > 0 %>
+<div class='row'>
+  <div class='col-md-6 col-md-offset-3 card-task'>
+    <h4>Participants (<%= @num  %>/<%= @total %>)</h4>
+    <% @data.each_with_index do |d, i| %>
+      <%= @task.choices[i] %> <%= (d*100.0/@num).round(1) %>% (<%= d %>/<%= @num %>)<br/>
+    <% end %>
+  </div>
+</div>
+<% end %>
