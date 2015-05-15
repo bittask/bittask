@@ -5,16 +5,17 @@
     <% bits = (@task.cost.to_f / 100).round %>
 
     <% if !@task.active && @answers.empty? %>
-      <h2>Send Payment To Start Your Task</h2>
+      <h2 class="tasktitle">Send Payment To Start Your Task</h2>
       <p>You've chosen to pay <strong><%= bits %> bits</strong> per task so...</p>
       <% [10,100,1000].each do |i| %>
         <p>Send <strong><%= number_with_delimiter(bits * i) %></strong> bits or <strong><%= number_with_delimiter((bits * i).to_f / 1_000_000) %> BTC</strong> to have <strong><%= number_with_delimiter i %></strong> people complete it</p>
       <% end %>
     <% elsif @task.active %>
-      <h2>Task is running. <%= @num %> answers so far.</h2>
+      <h2 class="tasktitle">Task is running. <%= @num %> answers so far.</h2>
     <% else %>
-      <h2>Task completed. <%= @num %> answers received.</h2>
+      <h2 class="tasktitle">Task completed. <%= @num %> answers received.</h2>
     <% end %>
+    <%= render 'answers' %>
 
     <p>Bitcoin address <%= link_to @task.address, url, target: "_blank" %></p>
     <%= link_to image_tag("https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=#{URI.encode url}"), url, target: "_blank" %>
@@ -26,6 +27,5 @@
 <br>
 <%= render @task %>
 <br>
-<center><h3>Answers:</h3></center>
+
 <br>
-<%= render 'answers' %>
