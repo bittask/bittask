@@ -1,16 +1,13 @@
 var App = React.createClass({
-
-  getInitialState: function() {
-    return {data: []};
+  handleTaskUpdate: function() {
+    this.forceUpdate()
   },
-
-  componentDidMount: function() {
-  },
-
   render: function() {
     return (
       <div>
-        <Task />
+        <MenuUser /><MenuCreate />
+        <p/>
+        <Task updateTask={this.handleTaskUpdate} />
       </div>
     );
   }

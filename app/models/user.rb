@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
 
   validates_presence_of :balance
 
+  def answered(task)
+    increment!(:balance, task.cost)
+  end
+
   def to_s
     "#{id}"
   end

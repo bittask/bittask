@@ -7,8 +7,13 @@ class Task < ActiveRecord::Base
 
   validates_presence_of :user, :title, :task_type, :cost, :address, :balance
 
-  def add_balance balance
-    increment :balance, balance
+  def increase_balance bal
+    increment!(:balance, bal)
+  end
+
+  def answered
+    increment!(:balance, -cost)
+    update_column(:active, false) if balance < cost
   end
 
   def to_s
