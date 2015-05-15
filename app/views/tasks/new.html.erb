@@ -1,7 +1,7 @@
 <center><h2>Post A New Task</h2></center>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-2">
+  <div class="col-md-6 col-md-offset-3">
     <%= form_for @task, html: {class: 'form-horizontal', multipart: true} do |f| %>
       <%= render 'shared/error_messages', target: @task %>
 
@@ -84,7 +84,7 @@
           <label class="col-md-4 control-label" for="singlebutton"></label>
           <div class="col-md-7">
 
-            <%= link_to "Pay With Bitcoin", '#', class: 'btn btn-primary btn-lg', id: 'submit_task_form', disable_with: "Pay With Bitcoin..." %>
+            <%= link_to "Pay With Bitcoin", '#', class: 'btn btn-primary btn-lg paybutton', id: 'submit_task_form', disable_with: "Pay With Bitcoin..." %>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
