@@ -10,11 +10,26 @@ class Task < ActiveRecord::Base
   before_validation :reset_balance
 
   validates_presence_of :user, :title, :task_type, :cost, :balance
+  validate :choices_validation
 
   after_save :get_address
 
+  def choices_validation
+    logger.debug "xcv #{task_type} #{TYPE_MULTIPLE_CHOICE} #{task_type == TYPE_MULTIPLE_CHOICE}"
+    if task_type == TYPE_MULTIPLE_CHOICE and (choices.nil? or choices.size < 2)
+      logger.debug "asd"
+      self.errors.add :base, "You must include at least 2 choices, one per line"
+    end
+  end
+
   def reset_balance
     self.balance = 0
+  end
+
+  def self.get_latest(current_user)
+    tasks = Answer.select(:task_id).user(current_user.id)
+    # Tasks that user has not answered ordered by descending cost
+    Task.where.not(id: tasks).where(active: true).order(cost: :desc).first
   end
 
   def get_address

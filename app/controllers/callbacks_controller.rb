@@ -1,4 +1,4 @@
-class Api::V1::CallbacksController < ActionController::Base
+class CallbacksController < ActionController::Base
   protect_from_forgery with: :null_session
 
   def create

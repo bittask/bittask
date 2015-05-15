@@ -34,7 +34,5 @@ module Bittask
     end
 
     config.autoload_paths += %W(\#{config.root}/lib)
-
-    config.react.addons = true
   end
 end

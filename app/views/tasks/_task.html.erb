@@ -1,0 +1,8 @@
+<div class="card card-task">
+  <div id='task-image'><span class="placeholder"></span></div>
+  <p class="lead"><%= @task.title %></p>
+  <% @task.choices.each do |choice| %>
+    <%= link_to choice, answers_path(task_id: @task.id, choice: choice), method: :post, class: 'btn btn-lg btn-default' %>
+  <% end %>
+  <p class="text-muted fine-print">This task pay <%= @task.cost %> bits.</p>
+</div>

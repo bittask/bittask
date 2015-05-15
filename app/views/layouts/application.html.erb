@@ -4,13 +4,14 @@
   <title>Earn Bitcoin By Completing Tasks</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'https://code.jquery.com/jquery-2.1.4.min.js' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id='content'></div>
-  <div class="modal fade"></div>
-  <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= render 'shared/menu_nav' %>
+
+  <div class="container" role="main" style="margin-top: -40px;">
+    <%= yield %>
+  </div>
 </body>
 </html>

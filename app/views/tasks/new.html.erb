@@ -1,0 +1,109 @@
+<center><h2>Post A New Task</h2></center>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <%= form_for @task, html: {class: 'form-horizontal'} do |f| %>
+      <%= render 'shared/error_messages', target: @task %>
+
+      <fieldset>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textarea">Question/Instructions</label>
+          <div class="col-md-7">
+            <%= f.text_area :title, class: 'form-control', placeholder: "" %>
+          </div>
+        </div>
+
+        <!-- File Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="filebutton">Photo (optional)</label>
+          <div class="col-md-7">
+            <%= f.file_field :image %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textarea">Choices</label>
+          <div class="col-md-7">
+            <%= text_area_tag 'task[choices]', (@task.choices.join("\n") rescue ''), class: 'form-control', placeholder: "" %>
+            <span class="help-block">One per line, 5 max</span>
+          </div>
+        </div>
+
+        <% if false %>
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="selectbasic">Task Type</label>
+            <div class="col-md-7">
+              <select id="selectbasic" name="task[task_type]" class="form-control">
+                <option value="1">Multiple Choice</option>
+                <option value="2">Free Form Response</option>
+              </select>
+            </div>
+          </div>
+
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Choice #1</label>
+            <div class="col-md-7">
+              <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-lg">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Choice #2</label>
+            <div class="col-md-7">
+              <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-lg">
+
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Number of respones</label>
+            <div class="col-md-7">
+              <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-lg">
+
+            </div>
+          </div>
+        <% end %>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Bits per response</label>
+          <div class="col-md-7">
+            <input id="textinput" name="task[cost]" type="text" placeholder="500" class="form-control input-lg" style="width: 120px;">
+            <span class="help-block">Priority given to tasks with the highest bid</span>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="singlebutton"></label>
+          <div class="col-md-7">
+
+            <%= link_to "Pay With Bitcoin", '#', class: 'btn btn-primary btn-lg', id: 'submit_task_form', disable_with: "Pay With Bitcoin..." %>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Pay for task</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>1N9r35J4BFhVNb6ue4DVgofH84z7bkRo2H</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    <% end %>
+  </div>
+</div>
