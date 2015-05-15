@@ -2,6 +2,8 @@ class Task < ActiveRecord::Base
   TYPE_MULTIPLE_CHOICE = 1
   TYPE_FREE_FORM = 2
 
+  CALLBACK_URL = "http://bittask.io/api/v1/callbacks"
+
   belongs_to :user
   has_many :answers
 
@@ -17,7 +19,8 @@ class Task < ActiveRecord::Base
 
   def get_address
     return if address
-    update_column(:address, COINBASE.generate_receive_address({address: {label: "Task #{id}"}}).address)
+    # Do this async?
+    update_column(:address, COINBASE.generate_receive_address({address: {label: "Task #{id}", callback_url: CALLBACK_URL}}).address)
   end
 
   def increase_balance bal
