@@ -26,18 +26,4 @@ class TasksController < ApplicationController
   rescue
     redirect_to '/', error: "Task not found"
   end
-
-  def index
-    render json: Task.all
-  end
-
-  def latest
-    # Tasks that user has answered
-    tasks = Answer.select(:task_id).user(current_user.id)
-    # Tasks that user has not answered ordered by descending cost
-    task = Task.where.not(id: tasks).where(active: true).order(cost: :desc).first
-
-    render json: task
-  end
-
 end

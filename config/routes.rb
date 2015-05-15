@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :tasks do
-    get :latest, on: :collection
-  end
+  resources :tasks
   resources :answers
   resources :users
   resources :callbacks
