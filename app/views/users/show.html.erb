@@ -20,9 +20,9 @@
         <td><%= t.type_string %></td>
         <td><%= link_to t.title, task_path(t.id) %></td>
         <td><%= t.choices %></td>
-        <td><%= t.cost %></td>
+        <td><%= t.cost/100 %></td>
         <td><a href="bitcoin:<%= t.address %>"><%= t.address %></a></td>
-        <td><%= t.balance %></td>
+        <td><%= t.balance/100 %></td>
         <td><%= t.answers.count %></td>
         <td><%= t.active %></td>
       </tr>

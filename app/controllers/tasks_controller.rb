@@ -24,8 +24,14 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @answers = @task.answers
-  rescue
-    redirect_to '/', error: "Task not found"
+    @num = @answers.count
+    @total = @answers.count + @task.balance / @task.cost
+    if @task.is_multiple_choice?
+      @data = Array.new(@task.choices.count, 0)
+      @answers.each do |a|
+        @data[a.choice] += 1
+      end
+    end
   end
 
 

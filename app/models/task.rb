@@ -49,6 +49,10 @@ class Task < ActiveRecord::Base
     end
   end
 
+  def is_multiple_choice?
+    task_type == TYPE_MULTIPLE_CHOICE
+  end
+
   def get_address
     return if address
     # Do this async?
