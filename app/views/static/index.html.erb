@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -251,7 +250,7 @@ body {
 
     <footer class="footer">
       <div class="container">
-        <p>TO THE MOON! ┗(°0°)┛</p>
+        <p>TO THE MOON! ┗(°0°)┛ - Your user id is <%= current_user.id %></p>
       </div>
     </footer>
 
@@ -259,7 +258,7 @@ body {
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script>
-      $('#popover').popover({ 
+      $('#popover').popover({
           html : true,
           title: function() {
             return $("#popover-head").html();
