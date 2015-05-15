@@ -5,7 +5,14 @@ class Task < ActiveRecord::Base
   belongs_to :user
   has_many :answers
 
-  validates_presence_of :user, :title, :task_type, :cost, :address, :balance
+  validates_presence_of :user, :title, :task_type, :cost, :balance
+
+  after_save :get_address
+
+  def get_address
+    return if address
+    update_column(:address, COINBASE.generate_receive_address({address: {label: "Task #{id}"}}).address)
+  end
 
   def increase_balance bal
     increment!(:balance, bal)
