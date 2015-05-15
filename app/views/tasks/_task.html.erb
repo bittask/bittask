@@ -1,8 +1,13 @@
-<div class="card card-task">
-  <div id='task-image'><span class="placeholder"></span></div>
-  <p class="lead"><%= @task.title %></p>
-  <% @task.choices.each do |choice| %>
-    <%= link_to choice, answers_path(task_id: @task.id, choice: choice), method: :post, class: 'btn btn-lg btn-default' %>
-  <% end %>
-  <p class="text-muted fine-print">This task pay <%= @task.cost %> bits.</p>
+<div class='row'>
+  <div class='col-md-6 col-md-offset-3 card-task'>
+    <p class="lead"><%= @task.title %></p>
+    <div class='task-image'>
+      <%= image_tag "http://phandroid.s3.amazonaws.com/wp-content/uploads/2015/01/field-5.jpg" %>
+    </div>
+    <br>
+    <% @task.choices.each do |choice| %>
+      <%= link_to choice, answers_path(task_id: @task.id, choice: choice), method: :post, class: 'btn btn-lg btn-default' %>
+    <% end %>
+    <p class="text-muted fine-print">This task pay <%= @task.cost %> bits.</p>
+  </div>
 </div>
