@@ -6,7 +6,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :task_type
       t.text :choices, array: true
       t.integer :cost
-      t.string :address
+      t.string :address, index: true
       t.integer :balance
       t.timestamps null: false
       t.references :user, type: :uuid, index: true

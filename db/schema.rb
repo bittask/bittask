@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150515002251) do
     t.uuid     "user_id"
   end
 
+  add_index "tasks", ["address"], name: "index_tasks_on_address", using: :btree
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", id: :uuid, default: "gen_random_uuid()", force: :cascade do |t|
@@ -49,5 +50,7 @@ ActiveRecord::Schema.define(version: 20150515002251) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "users", ["address"], name: "index_users_on_address", using: :btree
 
 end
