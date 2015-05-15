@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
   TYPE_MULTIPLE_CHOICE = 1
   TYPE_FREE_FORM = 2
 
-  CALLBACK_URL = "http://bittask.io/api/v1/callbacks"
+  CALLBACK_URL = "http://bittask.io/callbacks"
 
   belongs_to :user
   has_many :answers
@@ -13,6 +13,14 @@ class Task < ActiveRecord::Base
   validate :choices_validation
 
   after_save :get_address
+
+  def self.user(user_id)
+    where("tasks.user_id = ?", user_id)
+  end
+
+  def self.for_user(user)
+    Task.user(user.id).order(created_at: :asc)
+  end
 
   def choices_validation
     logger.debug "xcv #{task_type} #{TYPE_MULTIPLE_CHOICE} #{task_type == TYPE_MULTIPLE_CHOICE}"
@@ -26,10 +34,19 @@ class Task < ActiveRecord::Base
     self.balance = 0
   end
 
-  def self.get_latest(current_user)
-    tasks = Answer.select(:task_id).user(current_user.id)
+  def self.get_latest(user)
+    tasks = Answer.select(:task_id).user(user.id)
     # Tasks that user has not answered ordered by descending cost
     Task.where.not(id: tasks).where(active: true).order(cost: :desc).first
+  end
+
+  def type_string
+    case task_type
+    when TYPE_MULTIPLE_CHOICE
+      "Multiple choice"
+    when TYPE_FREE_FORM
+      "Free response"
+    end
   end
 
   def get_address
