@@ -136,3 +136,19 @@
     padding-bottom: 10px;
     font-weight: 500;
   }
+
+  .control-label {
+      font-weight: 300;
+  }
+
+  .paybutton {
+    width: 100%;
+    background: none;
+    color: rgb(123, 123, 123);
+
+  }
+
+
+  .form-control {
+    width: 320px;
+  }

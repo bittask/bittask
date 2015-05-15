@@ -8,6 +8,6 @@
     <% @task.choices.each do |choice| %>
       <%= link_to choice, answers_path(task_id: @task.id, choice: choice), method: :post, class: 'btn btn-lg btn-default' %>
     <% end %>
-    <p class="text-muted fine-print">This task pay <%= @task.cost %> bits.</p>
+    <p class="text-muted fine-print">This task pays <%= @task.cost %> bits.</p>
   </div>
 </div>
