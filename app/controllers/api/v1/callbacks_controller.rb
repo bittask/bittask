@@ -10,6 +10,8 @@ class Api::V1::CallbacksController < ActionController::Base
     puts amount
     puts transaction
 
+    puts params
+
     render json: { success: true }, status: 200
   end
 end
