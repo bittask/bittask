@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
     else
       text = params[:text]
     end
-    answer = Answer.create(user: current_user, task: task, choice: choice)
+    answer = Answer.create(user: current_user, task: task, choice: choice) rescue nil
 
     redirect_to '/'
   end
