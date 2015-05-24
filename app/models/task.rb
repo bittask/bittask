@@ -11,6 +11,7 @@ class Task < ActiveRecord::Base
 
   validates_presence_of :user, :title, :task_type, :cost, :balance
   validate :choices_validation
+  validate :bits_validation
 
   after_save :get_address
 
@@ -23,10 +24,19 @@ class Task < ActiveRecord::Base
   end
 
   def choices_validation
-    logger.debug "xcv #{task_type} #{TYPE_MULTIPLE_CHOICE} #{task_type == TYPE_MULTIPLE_CHOICE}"
-    if task_type == TYPE_MULTIPLE_CHOICE and (choices.nil? or choices.size < 2)
-      logger.debug "asd"
-      self.errors.add :base, "You must include at least 2 choices, one per line"
+    if task_type == TYPE_MULTIPLE_CHOICE
+      if choices.nil? or choices.size < 2
+        self.errors.add :base, "You must include at least 2 choices, one per line"
+      end
+      if choices.present? and choices.size > 5
+        self.errors.add :base, "The maximum number of choices is 5"
+      end
+    end
+  end
+
+  def bits_validation
+    if cost < 100
+      self.errors.add :base, "The minimum number of bits is 1"
     end
   end
 

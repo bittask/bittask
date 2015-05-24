@@ -15,5 +15,11 @@
   <div class="container" role="main" style="margin-top: -40px;">
     <%= yield %>
   </div>
+
+  <div id="footer" class="text-muted">
+    <%= link_to "Discuss", "http://www.reddit.com/r/bittask/", target: '_blank' %>
+    | <%= link_to "Github", "https://github.com/bittask/bittask", target: '_blank' %>
+    | <%= link_to "Stats", stats_path %>
+  </div>
 </body>
 </html>

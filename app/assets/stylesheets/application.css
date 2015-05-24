@@ -14,10 +14,18 @@
  *= require_self
  */
 
+ .text-muted a {
+  color: rgb(116, 115, 115);
+ }
+
   body {
     padding-bottom: 30px;
     margin-bottom: 60px;
     background: #F7F7F7;
+  }
+
+  #footer {
+    padding: 20px;
   }
 
   h2 {

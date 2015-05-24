@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :callbacks
   resources :transactions
 
+  get 'stats' => 'static#stats'
   root 'static#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

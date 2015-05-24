@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
     end
     answer = Answer.create(user: current_user, task: task, choice: choice) rescue nil
 
-    redirect_to '/'
+    redirect_to root_path(saved: true)
   end
 
 end
