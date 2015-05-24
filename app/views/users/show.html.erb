@@ -1,0 +1,37 @@
+<center><h2>My Tasks</h2></center>
+
+<% if @tasks.present? %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Question</th>
+        <th>Choices</th>
+        <th>Cost Per Answer</th>
+        <th>Address</th>
+        <th>Balance</th>
+        <th>Answers</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |t| %>
+      <tr>
+        <td><%= t.type_string %></td>
+        <td><%= link_to t.title, task_path(t.id) %></td>
+        <td><%= t.choices %></td>
+        <td><%= t.cost/100 %></td>
+        <td><a href="bitcoin:<%= t.address %>"><%= t.address %></a></td>
+        <td><%= t.balance/100 %></td>
+        <td><%= t.answers.count %></td>
+        <td><%= t.active %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  You don't have any tasks yet. Why not post one?
+<% end %>
+
+<p>Withdrawal address <%= @user.address %>
+

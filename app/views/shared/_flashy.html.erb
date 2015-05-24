@@ -1,0 +1,7 @@
+<div class="flash">
+  <% flash.each do |type, msg| %>
+    <%= content_tag :div, class: "alert #{flash_type_to_css_class type}" do %>
+      <%= msg %>
+    <% end %>
+  <% end %>
+</div>

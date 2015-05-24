@@ -1,0 +1,16 @@
+<div class='row'>
+  <div class='col-md-6 col-md-offset-3 card-task'>
+    <p class="lead"><%= @task.title %></p>
+    <% if @task.image %>
+      <div class='task-image'>
+        <%= image_tag(@task.image) %>
+      </div>
+      <br>
+    <% end %>
+
+    <% @task.choices.each do |choice| %>
+      <%= link_to choice, answers_path(task_id: @task.id, choice: choice), method: :post, class: 'btn btn-lg btn-default' %>
+    <% end %>
+    <p class="text-muted fine-print">This task pays <%= (@task.cost.to_f / 100).round %> bits.</p>
+  </div>
+</div>

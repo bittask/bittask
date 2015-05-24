@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+  body {
+    padding-bottom: 30px;
+    margin-bottom: 60px;
+    background: #F7F7F7;
+  }
+
+  h2 {
+    padding-bottom: 40px;
+  }
+
+  .btn {
+      width: 40%;
+      margin-top: 20px;
+      margin: 10px;
+
+  }
+
+  .bittasklogo {
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgb(116, 115, 115);
+  }
+  .navbar-nav {
+    float: right !important;
+  }
+
+  .button-nav {
+    margin: 8px 0px 8px 10px !important;
+    background: #F7F7F7;
+    color: #000;
+  }
+
+  .navbar .btn {
+    min-height: 54px;
+    color: rgb(87, 87, 87);
+    font-weight: 600;
+    min-width: 90px;
+  }
+
+  .navbar li {
+    min-height: 54px;
+  }
+
+  .navbar li span {
+    padding: 15px 0;
+  }
+
+  .navbar-inverse {
+    border-width: 0;
+  }
+
+  .navbar-inverse .navbar-brand {
+    height: 50px;
+    width: 198px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgb(116, 115, 115);
+  }
+
+  .card {
+    padding: 30px 15px 15px 15px;
+    text-align: center;
+    border-radius: 6px;
+  }
+
+  .card-task {
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #E1E1E1;
+    box-shadow: 1px 1px 1px 1px #DEDEDE;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .task-image img {
+    width:100%;
+
+  }
+
+  .card .btn {
+    padding: 14px 24px;
+    font-size: 21px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .popover {
+    width: 350px !important;
+    max-width: 350px !important;
+  }
+
+  .placeholder {
+    height: 331px;
+    width: 500px;
+    background: #ccc;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo {
+    height: 50px;
+    width: 198px;
+    display: block;
+    background: #ccc;
+  }
+
+  .green {
+    color: #2CAFF8;
+  }
+
+  .fine-print {
+    padding-top: 30px;
+    color: #B6B6B6;
+    padding-bottom: 20px;
+  }
+
+  .lead {
+    padding-top: 50px;
+    padding-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .control-label {
+      font-weight: 300;
+  }
+
+  .paybutton {
+    width: 100%;
+    background: none;
+    color: rgb(123, 123, 123);
+
+  }
+
+
+  .form-control {
+    width: 320px;
+  }
+
+  .answercard {
+    padding: 40px;
+    margin-bottom: 50px;
+    line-height: 2;
+
+  }
+
+  .tasktitle {
+    padding-top: 60px;
+  }

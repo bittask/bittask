@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Earn Bitcoin By Completing Tasks</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= render 'shared/menu_nav' %>
+  <%= render 'shared/flashy' %>
+
+  <div class="container" role="main" style="margin-top: -40px;">
+    <%= yield %>
+  </div>
+</body>
+</html>

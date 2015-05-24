@@ -1,0 +1,16 @@
+<%
+   targets ||= [target]
+   targets.compact!
+%>
+<% if targets.any? { |target| target.errors.any? } %>
+  <div class="alert">
+    <% if defined?(can_close) %>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <% end %>
+    <% targets.each do |target| %>
+      <% target.errors.full_messages.each do |msg| %>
+        <%= msg %><br/>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

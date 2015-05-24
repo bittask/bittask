@@ -1,0 +1,19 @@
+<center><h2>Cash Out</h2></center>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <%= form_tag transactions_path, method: :post do %>
+      <div class="form-group">
+        <%= label_tag :address, "Bitcoin Address" %>
+        <%= text_field_tag :address, current_user.address, placeholder: "your bitcoin address", class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= button_tag "Cash Out", class: 'btn btn-default', style: "margin-left: 0px;" %>
+      </div>
+    <% end %>
+
+    <p>You'll need at least 100 bits to withdraw (due to mining fees).</p>
+    <p>Don't have a bitcoin wallet? <%= link_to "Create one at Coinbase", "https://www.coinbase.com", target: "_blank" %></p>
+
+  </div>
+</div>
