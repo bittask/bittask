@@ -7,7 +7,7 @@ class Task < ActiveRecord::Base
   belongs_to :user
   has_many :answers
 
-  before_validation :reset_balance
+  before_create :reset_balance
 
   validates_presence_of :user, :title, :task_type, :cost, :balance
   validate :choices_validation

@@ -18,7 +18,10 @@
     <%= render 'answers' %>
 
     <p>Bitcoin address <%= link_to @task.address, url, target: "_blank" %></p>
+<<<<<<< HEAD
     <p>Refresh this page once payment has been sent.</p>
+=======
+>>>>>>> dd6c71f64ccc56f72e64a893f85771a5c678df07
     <%= link_to image_tag("https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=#{URI.encode url}"), url, target: "_blank" %>
 
   </div>

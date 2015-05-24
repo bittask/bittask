@@ -19,7 +19,11 @@
       <tr>
         <td><%= t.type_string %></td>
         <td><%= link_to t.title, task_path(t.id) %></td>
+<<<<<<< HEAD
         <td><%= truncate t.choices.join(", ") %></td>
+=======
+        <td><%= t.choices %></td>
+>>>>>>> dd6c71f64ccc56f72e64a893f85771a5c678df07
         <td><%= t.cost/100 %></td>
         <td><a href="bitcoin:<%= t.address %>"><%= t.address %></a></td>
         <td><%= t.balance/100 %></td>
@@ -30,6 +34,14 @@
     </tbody>
   </table>
 <% else %>
+<<<<<<< HEAD
   You don't have any tasks yet. Try posting one in the top right.
 <% end %>
 
+=======
+  You don't have any tasks yet. Why not post one?
+<% end %>
+
+<p>Withdrawal address <%= @user.address %>
+
+>>>>>>> dd6c71f64ccc56f72e64a893f85771a5c678df07
